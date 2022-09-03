@@ -2,6 +2,7 @@ package main
 
 import (
 	"dibica/routes"
+	"os"
 	"path"
 	"path/filepath"
 
@@ -27,7 +28,7 @@ func main() {
 	r.Static("/cardsimg", "./createdCards/")
 	r.Static("/img", "./img/")
 
-	err := r.Run(":3000")
+	err := r.Run(":" + os.Getenv("PORT"))
 	if err != nil {
 		panic(err)
 	}
