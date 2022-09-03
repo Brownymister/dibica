@@ -25,6 +25,7 @@ func main() {
 
 	r.Static("/templates", "./templates/")
 	r.Static("/cardsimg", "./createdCards/")
+	r.Static("/img", "./img/")
 
 	err := r.Run(":3000")
 	if err != nil {

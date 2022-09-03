@@ -3,7 +3,6 @@ package routes
 import (
 	"fmt"
 	"net/http"
-	"reflect"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,8 +24,8 @@ func Cards(r *gin.Engine) {
 				fmt.Print(err)
 			}
 
-			if reflect.DeepEqual(body, CardCreateData{}) {
-				c.JSON(500, map[string]string{"status": "Name and template needed"})
+			if body.Name == "" || body.Template == "" || body.Message == "" {
+				c.JSON(406, map[string]string{"status": "Name and template needed"})
 			}
 
 			card := NewCard(body.Name, body.Message, body.Template)
