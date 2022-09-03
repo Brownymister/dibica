@@ -76,7 +76,7 @@
 
           <div>
             <p *ngIf="generated">
-                <ngb-alert [type]="LinkAlerType" (closed)="CopyToCiplyboard()">You can send the Card via this Link: <a href="{{ imageURl }}">{{ LinkAlertMessage }}</a></ngb-alert>
+                <ngb-alert [type]="LinkAlerType" (closed)="CopyToCiplyboard()">You can send the Card via this Link: <button class="btnlink" (click)="copyToCb();">{{ LinkAlertMessage }}</button></ngb-alert>
             </p>
           </div>
         </div>

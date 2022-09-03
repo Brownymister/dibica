@@ -26,6 +26,11 @@ export class CreatePageComponent implements OnInit {
     document.getElementById("message").value = msg;
   }
 
+  copyToCb() {
+    console.log("copy")
+    navigator.clipboard.writeText("https://dibica.herokuapp.com"+this.imageURl);
+  }
+
   CopyToCiplyboard() {
     console.log("copy");
   }
