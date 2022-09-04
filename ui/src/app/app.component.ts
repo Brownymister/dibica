@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css', ]
 })
 export class AppComponent {
-  title = 'Generate your digital bithday card now!';
+  title = 'Generate your digital birthday card now!';
 }

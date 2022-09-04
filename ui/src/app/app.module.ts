@@ -8,10 +8,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TemplateCardComponent } from './template-card/template-card.component';
 import { CreatePageComponent } from './create-page/create-page.component';
+import { ViewPageComponent } from './view-page/view-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'create', component: CreatePageComponent },
+  { path: 'card', component: ViewPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ]
 
@@ -21,6 +23,7 @@ const routes: Routes = [
     HomepageComponent,
     TemplateCardComponent,
     CreatePageComponent,
+    ViewPageComponent,
   ],
   imports: [
     BrowserModule,

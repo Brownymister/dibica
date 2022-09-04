@@ -1,0 +1,47 @@
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.feature_desc {
+    display: block;
+}
+
+.btnlink {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .responsive {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.header {
+    padding: 15%;
+    padding-bottom: 2%;
+   /*  min-height: 300px; */
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        padding: 25%;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 2%;
+    }
+}

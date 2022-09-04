@@ -35,5 +35,14 @@ func Cards(r *gin.Engine) {
 
 			c.JSON(http.StatusOK, map[string]string{"link": card.GetCardLink()})
 		})
+
+		cards.GET("/message", func(c *gin.Context) {
+			id := c.Query("id")
+			if id != "" {
+				c.JSON(http.StatusOK, map[string]string{"message": GetMessageById(id).Message})
+			} else {
+				c.JSON(404, map[string]string{"status": "id needed"})
+			}
+		})
 	}
 }

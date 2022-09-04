@@ -28,29 +28,15 @@
       </div>
     </nav>
     <!-- Header-->
-    <header class="bg-blue bg-gradient text-white header">
-      <div class="container px-4 text-center">
-        <h1 class="fw-bolder">{{ title }}</h1>
-        <p class="lead">
-         Wanna create simple and goodlooking Digital Brithday cards to send to your friends or family members? <br>
-         Just choose a Template you like, type a Name and an Message!
-        </p>
-      </div>
+    <header class="header">
+      <img
+        src="{{ imgUrl }}"
+        id="previewImg"
+        class="responsive center"
+        alt=""
+      />
+      <h1 class="text-center display-1"><em>"{{ message }}"</em></h1>
     </header>
-
-    <div id="tamplates" class="album py-5 bg-light">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                
-                <app-template-card cardtitle="This is a Title" imgURL="/templates/bd1.png"></app-template-card>
-                
-                <app-template-card cardtitle="This is a Title 2" imgURL="https://via.placeholder.com/500x350?text=your%20content%20here"></app-template-card>
-                
-                <app-template-card cardtitle="This is a Title 3" imgURL="https://via.placeholder.com/500x350?text=your%20content%20here"></app-template-card>
-                
-            </div>
-        </div>
-    </div>
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">

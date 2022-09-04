@@ -10,7 +10,7 @@ export class HomepageComponent implements OnInit {
   constructor() { 
   }
 
-  title = 'Generate your digital bithday card now!';
+  title = 'Generate your digital birthday card now!';
   
   ngOnInit(): void {
   }
