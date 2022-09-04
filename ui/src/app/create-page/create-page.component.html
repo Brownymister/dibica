@@ -1,118 +1,159 @@
-<body class="bg-light">
-    <div id="page-top">
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <div class="container px-4">
-            <a class="navbar-brand" href="#page-top">Digital Birthday Card</a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+<div id="page-top">
+  <nav class="navbar navbar-expand-lg bg-grey fixed-top" id="mainNav">
+    <div class="container px-4">
+      <!--  <a class="navbar-brand" href="#page-top">Digital Birthday Card</a> -->
+      <a href="/">
+        <img
+          src="/img/logos/DIBICALOGO_Gradient2_Text_300.png"
+          class="navbar-brand"
+          alt=""
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/home/#tamplates">Tamplates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">My Collection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/brownymister/dibica"
+              >Github</a
             >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#tamplates">Tamplates</a></li>
-                <li class="nav-item"><a class="nav-link" href="#tamplates">My Collection</a></li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/brownymister/dibica">Github</a>
-                </li>
-                </ul>
-            </div>
-            </div>
-        </nav>
-
-
-    </div>
-
-    <div class="container" style="margin-top: 2%;">
-      <div class="py-5 text-center">
-        <h2>Create Card</h2>
-       <!--  <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> -->
+          </li>
+        </ul>
       </div>
+    </div>
+  </nav>
+  <!-- Header-->
+  <header class="text-white header">
+    <img
+      src="/templates/bd1.png"
+      id="previewImg"
+      class="responsive center"
+      alt=""
+    />
+  </header>
 
-      <img src="/templates/bd1.png" id="previewImg" class="responsive center" alt="">
-
+  <div class="album bg-light">
+    <div class="container">
       <div class="row">
-
         <div class="col-md-15 order-md-1">
           <h4 class="mb-3">Card Information</h4>
           <form class="needs-validation" novalidate="">
             <div class="row">
               <div class="col-md-15 mb-3">
                 <label for="firstName">Recipient name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Hans-Mueller" value="" required="">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  placeholder="Hans-Mueller"
+                  value=""
+                  required=""
+                />
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
             </div>
             <div class="row">
-
-                <div class="col-md-15 mb-3">
-                    
-                    <label for="message">Backsite Message<br> </label>
-                    <ul style="list-style-type: none;">
-                        <li class='feature_wrapper' id='feature_icon_getstart'> 
-                            
-                            <span style="margin: 1%;" (click)="SetMessage('Happy Birthday!')" class="badge rounded-pill bg-primary">Happy Birthday!</span>
-                            <span style="margin: 1%;" (click)="SetMessage('Best Wishes!')" class="badge rounded-pill bg-primary">Best Wishes!</span>
-                        </li>
-                    </ul>
-                    <input type="text" class="form-control" id="message" placeholder="i.e. Happy Birthday!" value="" required="">
-                    <div class="invalid-feedback">
-                    </div>
-                </div>
+              <div class="col-md-15 mb-3">
+                <label for="message">Backsite Message<br /> </label>
+                <ul style="list-style-type: none">
+                  <li class="feature_wrapper" id="feature_icon_getstart">
+                    <span
+                      style="margin: 1%"
+                      (click)="SetMessage('Happy Birthday!')"
+                      class="badge rounded-pill bg-blue"
+                      >Happy Birthday!</span
+                    >
+                    <span
+                      style="margin: 1%"
+                      (click)="SetMessage('Best Wishes!')"
+                      class="badge rounded-pill bg-blue"
+                      >Best Wishes!</span
+                    >
+                  </li>
+                </ul>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="message"
+                  placeholder="i.e. Happy Birthday!"
+                  value=""
+                  required=""
+                />
+                <div class="invalid-feedback"></div>
+              </div>
             </div>
-            
-            <hr class="mb-4">
-            <button id="send-btn" type="button" class="btn btn-primary" style="margin: 1em 1em 1em 0" (click)="SendCardInformation();" >Generate</button> 
+
+            <hr class="mb-4" />
+            <button
+              id="send-btn"
+              type="button"
+              class="btn btn-primary bg-blue"
+              style="margin: 1em 1em 1em 0"
+              (click)="SendCardInformation()"
+            >
+              Generate
+            </button>
           </form>
 
-          <div>
-            <p *ngIf="generated">
-                <ngb-alert [type]="LinkAlerType" (closed)="CopyToCiplyboard()">You can send the Card via this Link: <button class="btnlink" (click)="copyToCb();">{{ LinkAlertMessage }}</button></ngb-alert>
-            </p>
+          <div *ngIf="displayError" class="alert alert-danger" style="margin-top: 1%;" role="alert">
+            {{ error }}
+          </div>
+
+          <div id="clipboard" style="display: none;">
+            <div class="align-items-center w-auto">
+              <div class="input-group mb-3">
+                  <input id="in01"
+                         type="text"
+                         class="form-control"
+                         placeholder=""
+                         aria-label=""
+                         aria-describedby="btn01"
+                         value=""
+                         readonly
+                  >
+                  <button id="btn01"
+                          class="btn btn-secondary"
+                          type="button"
+                          data-clipboard-demo=""
+                          data-clipboard-target="#in01"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="bottom"
+                          title="Copy to Clipboard"
+                          (click)="copyToCb();"
+                  >Copy</button>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
     </div>
-        <div *ngIf="displayError" class="alert alert-danger" style="margin-top: 1%;" role="alert">
-           {{ error }}
-        </div>
+  </div>
+
+  <!-- Footer-->
+  <footer class="py-5 bg-dark">
+    <div class="container px-4">
+      <p class="m-0 text-center text-white">
+        Copyright &copy; dibica 2022 LICENCED under the
+        <a href="https://github.com/Brownymister/dibica/blob/main/LICENSE"
+          >MIT LICENCE</a
+        >
+      </p>
     </div>
-    <footer class="py-5 bg-dark" style="margin-top: 3%;">
-        <div class="container px-4">
-          <p class="m-0 text-center text-white">Copyright &copy; dibica 2022 LICENCED under the <a href="https://github.com/Brownymister/dibica/blob/main/LICENSE">MIT LICENCE</a> </p>
-        </div>
-    </footer>
-
-    <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-    </script>
-  
-
-</body>
+  </footer>
+</div>

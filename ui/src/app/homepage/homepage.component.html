@@ -1,9 +1,10 @@
 
 <div id="page-top">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg bg-grey fixed-top" id="mainNav">
       <div class="container px-4">
-        <a class="navbar-brand" href="#page-top">Digital Birthday Card</a>
+        <!--  <a class="navbar-brand" href="#page-top">Digital Birthday Card</a> -->
+        <a href="/"> <img src="/img/logos/DIBICALOGO_Gradient2_Text_300.png" class="navbar-brand" alt=""></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -17,8 +18,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#tamplates">Tamplates</a></li>
-            <li class="nav-item"><a class="nav-link" href="#tamplates">My Collection</a></li>
+            <li class="nav-item"><a class="nav-link" href="/home/#tamplates">Tamplates</a></li>
+            <li class="nav-item"><a class="nav-link" href="">My Collection</a></li>
             <li class="nav-item">
               <a class="nav-link" href="https://github.com/brownymister/dibica">Github</a>
             </li>
@@ -27,7 +28,7 @@
       </div>
     </nav>
     <!-- Header-->
-    <header class="bg-primary bg-gradient text-white" style="padding: 10%;">
+    <header class="bg-blue bg-gradient text-white header">
       <div class="container px-4 text-center">
         <h1 class="fw-bolder">{{ title }}</h1>
         <p class="lead">
@@ -37,11 +38,11 @@
       </div>
     </header>
 
-    <div class="album py-5 bg-light">
+    <div id="tamplates" class="album py-5 bg-light">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 
-                <app-template-card cardtitle="This is a Title" imgURL="https://via.placeholder.com/500x350?text=your%20content%20here"></app-template-card>
+                <app-template-card cardtitle="This is a Title" imgURL="/templates/bd1.png"></app-template-card>
                 
                 <app-template-card cardtitle="This is a Title 2" imgURL="https://via.placeholder.com/500x350?text=your%20content%20here"></app-template-card>
                 

@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --white: #f0efec;
+    --grey: #7f8498;
+    --light-blue: #a1afcf;
+    --blue: #6173a9;
+    --dark-blue: #132f62;
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+body {
+    background-color: var(--white);
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:  var(--blue) !important;
+}

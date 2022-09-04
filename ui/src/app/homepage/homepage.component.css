@@ -1,0 +1,12 @@
+.header {
+    padding: 15%;
+   /*  min-height: 300px; */
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        padding: 25%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

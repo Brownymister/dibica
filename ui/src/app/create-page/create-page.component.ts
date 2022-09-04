@@ -17,7 +17,6 @@ export class CreatePageComponent implements OnInit {
   imageURl: string = "";
   error: string = "";
   displayError: boolean = false;
-  generated: boolean = false;
   LinkAlertMessage: string = "";
   LinkAlerType: string = "dark";
   
@@ -27,12 +26,7 @@ export class CreatePageComponent implements OnInit {
   }
 
   copyToCb() {
-    console.log("copy")
     navigator.clipboard.writeText("https://dibica.herokuapp.com"+this.imageURl);
-  }
-
-  CopyToCiplyboard() {
-    console.log("copy");
   }
 
   async SendCardInformation() {
@@ -64,7 +58,11 @@ export class CreatePageComponent implements OnInit {
       this.imageURl = json.link;
       // @ts-ignore
       document.getElementById("previewImg").src = json.link;
-      this.generated = true;
+      // @ts-ignore
+      document.getElementById("clipboard").style.display = "block";
+      console.log("https://dibica.herokuapp.com"+this.imageURl);
+      // @ts-ignore
+      document.getElementById("in01").value = "https://dibica.herokuapp.com"+this.imageURl;
       // @ts-ignore
       this.LinkAlertMessage = `Card to ${document.getElementById("firstName").value}`;
     } else {
