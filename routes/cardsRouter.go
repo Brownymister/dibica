@@ -18,6 +18,7 @@ func Cards(r *gin.Engine) {
 	cards := r.Group("/cards")
 	{
 		cards.POST("/create", func(c *gin.Context) {
+			fmt.Println("/cards/create hit")
 
 			body := CardCreateData{}
 			if err := c.BindJSON(&body); err != nil {

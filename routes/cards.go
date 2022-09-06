@@ -38,7 +38,7 @@ func GetMessageById(id string) string {
 }
 
 func (card *CardData) GenerateAndSaveCard() {
-	fmt.Print("create 1")
+	fmt.Println("create 1")
 
 	img := imgtext.NewImage("./templates/" + card.Template + ".png")
 
@@ -52,10 +52,11 @@ func (card *CardData) GenerateAndSaveCard() {
 		fmt.Print(err)
 	}
 
-	fmt.Print("create 2")
+	fmt.Println("create 2")
 }
 
 func (card *CardData) StoreCard() {
+	fmt.Println("save 1")
 	card.CardLink = fmt.Sprintf("/cardsimg/%s.png", card.Id)
 	fmt.Print(card)
 
@@ -66,6 +67,8 @@ func (card *CardData) StoreCard() {
 		Template: card.Template,
 		CardLink: card.CardLink,
 	})
+
+	fmt.Println("save 2")
 
 }
 
