@@ -39,7 +39,7 @@ func Cards(r *gin.Engine) {
 		cards.GET("/message", func(c *gin.Context) {
 			id := c.Query("id")
 			if id != "" {
-				c.JSON(http.StatusOK, map[string]string{"message": GetMessageById(id).Message})
+				c.JSON(http.StatusOK, map[string]string{"message": GetMessageById(id)})
 			} else {
 				c.JSON(404, map[string]string{"status": "id needed"})
 			}

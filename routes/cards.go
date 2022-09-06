@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"dibica/db"
 	"fmt"
 	"image/color"
 
@@ -22,8 +23,6 @@ type Card interface {
 	StoreCard()
 }
 
-var CardsArray []CardData
-
 func NewCard(name string, message string, tpl string) Card {
 
 	var card Card
@@ -33,13 +32,9 @@ func NewCard(name string, message string, tpl string) Card {
 	return card
 }
 
-func GetMessageById(id string) CardData {
-	for _, ele := range CardsArray {
-		if ele.Id == id {
-			return ele
-		}
-	}
-	return CardData{}
+func GetMessageById(id string) string {
+	card := db.GetCardById(id)
+	return card.Message
 }
 
 func (card *CardData) GenerateAndSaveCard() {
@@ -62,14 +57,16 @@ func (card *CardData) GenerateAndSaveCard() {
 
 func (card *CardData) StoreCard() {
 	card.CardLink = fmt.Sprintf("/cardsimg/%s.png", card.Id)
+	fmt.Print(card)
 
-	CardsArray = append(CardsArray, CardData{
+	db.InsertIntoCards(db.CardData{
 		Id:       card.Id,
 		Name:     card.Name,
 		Message:  card.Message,
 		Template: card.Template,
 		CardLink: card.CardLink,
 	})
+
 }
 
 func (card *CardData) GetCardLink() string {
