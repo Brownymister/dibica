@@ -10,11 +10,12 @@ import (
 )
 
 type CardData struct {
-	Id       string `json:"id"`       // card id
-	Name     string `json:"name"`     // name of the recever of the card
-	Message  string `json:"message"`  // message on the backsite
-	Template string `json:"template"` // card template
-	CardLink string `json:"cardlink"` // image link
+	Id         string `json:"id"`         // card id
+	Name       string `json:"name"`       // name of the recever of the card
+	Message    string `json:"message"`    // message on the backsite
+	Template   string `json:"template"`   // card template
+	CardLink   string `json:"cardlink"`   // image link
+	CreateDate string `json:"createdate"` // create date
 }
 
 func InitConnection() *mongo.Client {

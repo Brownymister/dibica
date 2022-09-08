@@ -4,17 +4,19 @@ import (
 	"dibica/db"
 	"fmt"
 	"image/color"
+	"time"
 
 	"github.com/Brownymister/imgtext"
 	"github.com/google/uuid"
 )
 
 type CardData struct {
-	Id       string `json:"id"`       // card id
-	Name     string `json:"name"`     // name of the recever of the card
-	Message  string `json:"message"`  // message on the backsite
-	Template string `json:"template"` // card template
-	CardLink string `json:"cardlink"` // image link
+	Id         string `json:"id"`         // card id
+	Name       string `json:"name"`       // name of the recever of the card
+	Message    string `json:"message"`    // message on the backsite
+	Template   string `json:"template"`   // card template
+	CardLink   string `json:"cardlink"`   // image link
+	CreateDate string `json:"createdate"` // create date
 }
 
 type Card interface {
@@ -27,18 +29,22 @@ func NewCard(name string, message string, tpl string) Card {
 
 	var card Card
 
-	card = &CardData{Name: name, Template: tpl, Id: uuid.New().String(), Message: message}
+	card = &CardData{Name: name, Template: tpl, Id: uuid.New().String(), Message: message, CreateDate: GetDate()}
 
 	return card
 }
 
-func GetMessageById(id string) string {
+func GetCardById(id string) db.CardData {
 	card := db.GetCardById(id)
-	return card.Message
+	return card
+}
+
+func GetDate() string {
+	dt := time.Now()
+	return dt.Format("01-02-2006")
 }
 
 func (card *CardData) GenerateAndSaveCard() {
-	fmt.Println("create 1")
 
 	img := imgtext.NewImage("./templates/" + card.Template + ".png")
 
@@ -52,23 +58,20 @@ func (card *CardData) GenerateAndSaveCard() {
 		fmt.Print(err)
 	}
 
-	fmt.Println("create 2")
 }
 
 func (card *CardData) StoreCard() {
-	fmt.Println("save 1")
 	card.CardLink = fmt.Sprintf("/cardsimg/%s.png", card.Id)
 	fmt.Print(card)
 
 	db.InsertIntoCards(db.CardData{
-		Id:       card.Id,
-		Name:     card.Name,
-		Message:  card.Message,
-		Template: card.Template,
-		CardLink: card.CardLink,
+		Id:         card.Id,
+		Name:       card.Name,
+		Message:    card.Message,
+		Template:   card.Template,
+		CardLink:   card.CardLink,
+		CreateDate: card.CreateDate,
 	})
-
-	fmt.Println("save 2")
 
 }
 

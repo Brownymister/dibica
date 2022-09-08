@@ -18,7 +18,6 @@ func Cards(r *gin.Engine) {
 	cards := r.Group("/cards")
 	{
 		cards.POST("/create", func(c *gin.Context) {
-			fmt.Println("/cards/create hit")
 
 			body := CardCreateData{}
 			if err := c.BindJSON(&body); err != nil {
@@ -40,7 +39,16 @@ func Cards(r *gin.Engine) {
 		cards.GET("/message", func(c *gin.Context) {
 			id := c.Query("id")
 			if id != "" {
-				c.JSON(http.StatusOK, map[string]string{"message": GetMessageById(id)})
+				c.JSON(http.StatusOK, map[string]string{"message": GetCardById(id).Message})
+			} else {
+				c.JSON(404, map[string]string{"status": "id needed"})
+			}
+		})
+
+		cards.GET("/createDate", func(c *gin.Context) {
+			id := c.Query("id")
+			if id != "" {
+				c.JSON(http.StatusOK, map[string]string{"date": GetCardById(id).CreateDate})
 			} else {
 				c.JSON(404, map[string]string{"status": "id needed"})
 			}
